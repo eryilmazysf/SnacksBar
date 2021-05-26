@@ -8,14 +8,16 @@ for (const buttonA of buttonsA) {
   buttonA.addEventListener("click", function () {
     let getTotal = calculateTotal();
     let priceA = Number(document.getElementById("priceA").innerText);
-    let returnPrice = getTotal - priceA;
+    let returnPrice = (getTotal - priceA).toFixed(2);
     //console.log(getTotal);
     if (getTotal >= priceA) {
       document.getElementById("returnPrice").innerText = returnPrice;
-      total = [returnPrice];
+      total = [Number(returnPrice)];
       document.getElementById("total").innerText = returnPrice;
       document.getElementById("showMoney").innerText = 0;
-      //console.log(total);
+      document.getElementById(
+        "bought"
+      ).innerText = `You bought : ${buttonA.innerText}`;
     } else {
       document.getElementById("returnPrice").setAttribute("style", "color:red");
       document.getElementById("returnPrice").innerText =
@@ -27,13 +29,16 @@ for (const buttonB of buttonsB) {
   buttonB.addEventListener("click", function () {
     let getTotal = calculateTotal();
     let priceB = Number(document.getElementById("priceB").innerText);
-    let returnPrice = getTotal - priceB;
+    let returnPrice = (getTotal - priceB).toFixed(2);
 
     if (getTotal >= priceB) {
       document.getElementById("returnPrice").innerText = returnPrice;
-      total = [returnPrice];
+      total = [Number(returnPrice)];
       document.getElementById("total").innerText = returnPrice;
       document.getElementById("showMoney").innerText = 0;
+      document.getElementById(
+        "bought"
+      ).innerText = `You bought : ${buttonB.innerText}`;
     } else {
       document.getElementById("returnPrice").setAttribute("style", "color:red");
       document.getElementById("returnPrice").innerText =
@@ -45,13 +50,16 @@ for (const buttonC of buttonsC) {
   buttonC.addEventListener("click", function () {
     let getTotal = calculateTotal();
     let priceC = Number(document.getElementById("priceC").innerText);
-    let returnPrice = getTotal - priceC;
+    let returnPrice = (getTotal - priceC).toFixed(2);
 
     if (getTotal >= priceC) {
       document.getElementById("returnPrice").innerText = returnPrice;
-      total = [returnPrice];
+      total = [Number(returnPrice)];
       document.getElementById("total").innerText = returnPrice;
       document.getElementById("showMoney").innerText = 0;
+      document.getElementById(
+        "bought"
+      ).innerText = `You bought : ${buttonC.innerText}`;
     } else {
       document.getElementById("returnPrice").setAttribute("style", "color:red");
       document.getElementById("returnPrice").innerText =
@@ -81,11 +89,12 @@ add.addEventListener("click", function () {
   money.value = "";
 });
 function calculateTotal() {
+  //console.log("total", total);
   let sum = total.reduce(function (a, b) {
     return a + b;
   }, 0);
   //console.log("sum", sum);
-  document.getElementById("total").innerText = sum.toFixed(2);
+  document.getElementById("total").innerText = sum;
   return sum;
 }
 
