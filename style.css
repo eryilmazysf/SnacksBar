@@ -26,6 +26,7 @@ img {
 }
 #buttons {
   text-align: center;
+  outline: none;
 }
 #screen {
   text-align: center;
@@ -56,4 +57,7 @@ button {
   border-radius: 1rem;
   height: 2rem;
   width: 4rem;
+}
+#return {
+  width: 10rem;
 }
